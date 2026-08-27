@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Integrado de Evidencias - Habilidades Comunicativas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-accent: #3b82f6;
+      --secondary: #0f172a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: var(--secondary);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i { color: var(--primary-accent); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-accent);
+    }
+
+    .admin-btn-trigger {
+      background: var(--primary-accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .admin-btn-trigger:hover {
+      background: #2563eb;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+
+    .institution-tag {
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 3px solid var(--primary-accent);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .team-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border: 1px solid #e2e8f0;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--primary-accent);
+    }
+
+    .team-card h3 { font-size: 1.2rem; color: var(--secondary); }
+    .team-card .role { color: var(--primary-accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .team-card .quote { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Evidences Section */
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .evidence-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .evidence-header {
+      background: #f1f5f9;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .evidence-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .media-container {
+      margin-top: 1rem;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    audio, iframe {
+      width: 100%;
+      border: none;
+    }
+
+    .poster-img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .poster-img:hover { opacity: 0.9; }
+
+    /* Argumentative Text Section */
+    .essay-container {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      margin-bottom: 4rem;
+    }
+
+    .essay-content p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    .apa-citation {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary-accent);
+      padding: 1rem;
+      font-size: 0.95rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    /* Admin Drawer/Modal */
+    .admin-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-modal-content {
+      background: white;
+      width: 90%;
+      max-width: 600px;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn-secondary {
+      background: #64748b;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Image Modal Zoom */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Habilidades Comunicativas</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#evidencias">Evidencias</a></li>
+        <li><a href="#texto-argumentativo">Texto Argumentativo</a></li>
+      </ul>
+      <button class="admin-btn-trigger" onclick="toggleAdminModal()">
+        <i class="fa-solid fa-gear"></i> Modificar Blog
+      </button>
+    </div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <span class="institution-tag">Católica del Norte - Fundación Universitaria</span>
+      <h1>Blog Integrado de Evidencias de Aprendizaje</h1>
+      <p>Espacio digital interactivo para la consolidación de procesos de literacidad crítica, producción académica oral y escrita en el contexto universitario.</p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <section id="equipo">
+      <h2 class="section-title"><i class="fa-solid fa-users"></i> Equipo de Trabajo</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+          <h3 id="member1-name">Sara Isaber Osorio Ospina</h3>
+          <div class="role">Líder de Contenido</div>
+          <p class="quote">"La comunicación asertiva transforma el conocimiento en impacto real."</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+          <h3 id="member2-name">Geny Rocio Galvis Capacho</h3>
+          <div class="role">Diseño y Edición Multimedia</div>
+          <p class="quote">"Cada discurso estructurado refleja el rigor del pensamiento académico."</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <h3 id="member3-name">Anderson Restrepo Jaramillo</h3>
+          <div class="role">Redacción y Revisión APA</div>
+          <p class="quote">"Investigar y comunicar con claridad es el pilar de nuestra formación."</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidencias">
+      <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Evidencias del Curso</h2>
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <div class="evidence-header"><i class="fa-solid fa-file-lines"></i> A. Actividad 1: Literacidad Crítica</div>
+          <div class="evidence-body">
+            <p>Análisis crítico y reflexivo de textos argumentativos, evaluando intenciones comunicativas, posturas implícitas y contextualización de discursos.</p>
+            <br>
+            <a href="#" style="color: var(--primary-accent); font-weight: 600; text-decoration: none;"><i class="fa-solid fa-download"></i> Descargar Informe Completo (PDF)</a>
+          </div>
+        </div>
+
+        <div class="evidence-card">
+          <div class="evidence-header"><i class="fa-solid fa-scroll"></i> B. Guion del Podcast</div>
+          <div class="evidence-body">
+            <p>Estructura narrativa del pódcast, con delimitación de tiempos, intervenciones, efectos sonoros y articulación del discurso oral.</p>
+            <br>
+            <a href="#" style="color: var(--primary-accent); font-weight: 600; text-decoration: none;"><i class="fa-solid fa-eye"></i> Leer Guion Transcripto</a>
+          </div>
+        </div>
+
+        <div class="evidence-card">
+          <div class="evidence-header"><i class="fa-solid fa-podcast"></i> C. Podcast Producido</div>
+          <div class="evidence-body">
+            <p>Episodio de audio grabado y producido en equipo sobre los retos de la comunicación académica.</p>
+            <div class="media-container" style="padding: 10px; background: #f1f5f9;">
+              <audio controls style="width: 100%;">
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Tu navegador no soporta el reproductor de audio.
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <div class="evidence-card">
+          <div class="evidence-header"><i class="fa-solid fa-chart-pie"></i> D. Póster Científico</div>
+          <div class="evidence-body">
+            <p>Síntesis visual de la investigación con elementos clave de diagramación y soporte académico.</p>
+            <div class="media-container" style="margin-top:10px;">
+              <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Haz+Clic+Para+Ampliar+Poster" alt="Póster Científico" class="poster-img" onclick="openLightbox(this.src)">
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">* Haz clic en la imagen para verla en alta resolución.</p>
+          </div>
+        </div>
+
+        <div class="evidence-card" style="grid-column: 1 / -1;">
+          <div class="evidence-header"><i class="fa-solid fa-video"></i> E. Sustentación - Video Tutorial de Navegación</div>
+          <div class="evidence-body">
+            <p>Explicación guiada (duración máxima 5 minutos) de la estructura del blog, recorrido por las evidencias y la experiencia de aprendizaje del equipo.</p>
+            <div class="media-container" style="height: 350px; margin-top: 15px;">
+              <iframe height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de Sustentación" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="texto-argumentativo">
+      <h2 class="section-title"><i class="fa-solid fa-pen-nib"></i> Texto Argumentativo</h2>
+      <div class="essay-container">
+        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">La Trascendencia de las Habilidades Comunicativas en los Entornos Académico y Laboral</h3>
+        
+        <div class="essay-content" id="essay-text">
+          <p>En la sociedad contemporánea de la información y el conocimiento, la capacidad de transmitir ideas con precisión, sustento y adaptabilidad se ha consolidado como un eje vertebrador del desarrollo personal y profesional. En el ámbito académico, el dominio de las competencias comunicativas escritas y orales trasciende la mera entrega de tareas escolares; constituye el vehículo primario a través del cual los estudiantes analizan, deconstruyen y aportan nuevos saberes. La articulación estructurada de conceptos exige una comprensión profunda del contexto discursivo, lo que fortalece directamente el pensamiento crítico y la capacidad de cuestionar realidades complejas.</p>
+          
+          <div class="apa-citation">
+            "Las habilidades comunicativas no son solo herramientas de transmisión de datos, sino procesos sociocognitivos fundamentales para la construcción colaborativa del conocimiento y la inserción laboral efectiva" (Cassany, 2019, p. 45).
+          </div>
+
+          <p>Bajo la premisa del autor citado, se evidencia que la competencia comunicativa no opera de forma aislada, sino en estrecha consonancia con las exigencias del entorno laboral actual. En las organizaciones modernas, caracterizadas por equipos multidisciplinarios e interconectados, la efectividad de un profesional no se mide únicamente por sus competencias técnicas, sino por su solidez para negociar, argumentar posturas, redactar informes ejecutivos claros y exponer proyectos de forma convin
