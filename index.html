@@ -3,357 +3,300 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Integrado de Evidencias - Habilidades Comunicativas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <title>Habilidades Comunicativas: Aprendemos, Comunicamos y Transformamos</title>
+  <!-- Tipografía moderna y FontAwesome para Iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
-      --primary: #1e3a8a;
-      --primary-accent: #3b82f6;
-      --secondary: #0f172a;
+      --primary: #0f2942;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
       --bg-light: #f8fafc;
       --card-bg: #ffffff;
       --text-dark: #1e293b;
       --text-muted: #64748b;
-      --border-radius: 12px;
-      --transition: all 0.3s ease;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
+	
+	.poster-img-container {
+	  text-align: center;
+	  background: #ffffff;
+	  padding: 1.5rem;
+	  border-radius: var(--radius);
+	  border: 1px solid var(--border);
+	}
+	.poster-img-wrapper {
+	  overflow: hidden;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	  margin-bottom: 1rem;
+	}
+	.poster-img-wrapper img {
+	  width: 100%;
+	  max-width: 900px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	  transition: transform 0.3s ease;
+	}
+	.poster-img-wrapper img:hover {
+	  transform: scale(1.02);
+	}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    /* Header & Navigation */
+    /* Header & Navegación sticky */
     header {
-      background: var(--secondary);
-      color: #fff;
+      background: var(--primary);
+      color: white;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-
     .nav-container {
-      max-width: 1200px;
+      max-width: 1250px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.5rem;
     }
-
     .logo {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: #fff;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
-    .logo i { color: var(--primary-accent); }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
-
+    .logo i { color: #60a5fa; }
+    .nav-links { display: flex; list-style: none; gap: 1rem; flex-wrap: wrap; }
     .nav-links a {
       color: #cbd5e1;
       text-decoration: none;
+      font-size: 0.88rem;
       font-weight: 500;
-      transition: var(--transition);
-      font-size: 0.95rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
     }
-
-    .nav-links a:hover {
-      color: var(--primary-accent);
-    }
-
-    .admin-btn-trigger {
-      background: var(--primary-accent);
-      color: #fff;
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.1); }
+    
+    .admin-trigger {
+      background: var(--accent);
+      color: white;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 6px;
-      cursor: pointer;
       font-weight: 600;
-      transition: var(--transition);
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
     }
-
-    .admin-btn-trigger:hover {
-      background: #2563eb;
-    }
+    .admin-trigger:hover { background: var(--accent-hover); }
 
     /* Hero Banner */
     .hero {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      background: linear-gradient(135deg, #0f2942 0%, #1e3a8a 100%);
       color: white;
-      padding: 4rem 2rem;
+      padding: 4rem 1.5rem;
       text-align: center;
     }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #94a3b8;
-      margin-bottom: 1.5rem;
-    }
-
-    .institution-tag {
-      background: rgba(255,255,255,0.1);
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-tag {
+      background: rgba(255, 255, 255, 0.15);
+      color: #93c5fd;
+      padding: 0.3rem 1rem;
       border-radius: 20px;
       font-size: 0.85rem;
-      letter-spacing: 1px;
+      font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
+    .hero h1 { font-family: 'Poppins', sans-serif; font-size: 2.2rem; margin: 1rem 0 0.5rem; }
+    .hero p { font-size: 1.05rem; color: #94a3b8; max-width: 750px; margin: 0 auto; }
 
-    /* Main Container */
-    .container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
+    /* Layout Principal */
+    .container { max-width: 1250px; margin: 3rem auto; padding: 0 1.5rem; }
+    section { margin-bottom: 4rem; scroll-margin-top: 90px; }
+    .section-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
-      gap: 10px;
-      border-bottom: 3px solid var(--primary-accent);
-      padding-bottom: 0.5rem;
+      gap: 12px;
     }
+    .section-header i { color: var(--accent); font-size: 1.5rem; }
+    .section-header h2 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; color: var(--primary); }
 
-    /* Team Section */
+    /* Cards del Equipo */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-bottom: 4rem;
     }
-
     .team-card {
       background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      transition: var(--transition);
-      border: 1px solid #e2e8f0;
     }
-
-    .team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    }
-
-    .team-avatar {
-      width: 90px;
-      height: 90px;
+    .team-avatar-img {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      background: #e2e8f0;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: var(--primary-accent);
+      object-fit: cover;
+      margin: 0 auto 1.2rem;
+      border: 3px solid var(--accent);
+      display: block;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .team-card h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .team-role { color: var(--accent); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .team-desc { font-size: 0.92rem; color: var(--text-muted); }
 
-    .team-card h3 { font-size: 1.2rem; color: var(--secondary); }
-    .team-card .role { color: var(--primary-accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    .team-card .quote { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
-
-    /* Evidences Section */
-    .evidence-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-
-    .evidence-card {
+    /* Contenedor de Evidencias / Acordeones */
+    .accordion {
       background: var(--card-bg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .evidence-header {
-      background: #f1f5f9;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #e2e8f0;
-      font-weight: 700;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .evidence-body {
-      padding: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .media-container {
-      margin-top: 1rem;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    audio, iframe {
-      width: 100%;
-      border: none;
-    }
-
-    .poster-img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .poster-img:hover { opacity: 0.9; }
-
-    /* Argumentative Text Section */
-    .essay-container {
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      margin-bottom: 4rem;
-    }
-
-    .essay-content p {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       margin-bottom: 1.2rem;
-      text-align: justify;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .accordion-header {
+      background: #ffffff;
+      padding: 1.2rem 1.5rem;
+      font-weight: 600;
       font-size: 1.05rem;
-      color: #334155;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
     }
+    .accordion-header:hover { background: #f1f5f9; }
+    .accordion-header i.chevron { transition: transform 0.3s; }
+    .accordion.active .accordion-header i.chevron { transform: rotate(180deg); }
+    .accordion-content {
+      display: none;
+      padding: 1.8rem;
+      border-top: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .accordion.active .accordion-content { display: block; }
 
-    .apa-citation {
-      background: #f8fafc;
-      border-left: 4px solid var(--primary-accent);
-      padding: 1rem;
-      font-size: 0.95rem;
-      margin: 1.5rem 0;
+    /* Cajas destacadas de Texto / Citas */
+    .quote-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent);
+      padding: 1.2rem;
+      border-radius: 4px;
+      margin: 1.2rem 0;
       font-style: italic;
+      color: #1e3a8a;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      transition: background 0.2s;
+    }
+    .btn-link:hover { background: var(--accent-hover); }
+
+    /* Grid del Póster Científico */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .poster-box {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .poster-box h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+
+    /* Medias Embebidos */
+    .media-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .media-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%; border: 0;
     }
 
-    /* Admin Drawer/Modal */
-    .admin-modal {
+    /* Panel Modal Admin */
+    .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.6);
       z-index: 2000;
       align-items: center;
       justify-content: center;
     }
-
-    .admin-modal-content {
+    .modal-content {
       background: white;
       width: 90%;
-      max-width: 600px;
+      max-width: 650px;
       padding: 2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
     }
-
-    .form-group {
-      margin-bottom: 1rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.9rem; }
     .form-group input, .form-group textarea, .form-group select {
       width: 100%;
       padding: 0.75rem;
-      border: 1px solid #cbd5e1;
+      border: 1px solid var(--border);
       border-radius: 6px;
       font-family: inherit;
     }
-
-    .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .btn-secondary {
-      background: #64748b;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
 
     /* Footer */
     footer {
-      background: var(--secondary);
+      background: var(--primary);
       color: #94a3b8;
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem 1.5rem;
       font-size: 0.9rem;
     }
-
-    /* Image Modal Zoom */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      z-index: 3000;
-      align-items: center;
-      justify-content: center;
-    }
-    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
   </style>
 </head>
 <body>
 
+  <!-- Navegación -->
   <header>
     <div class="nav-container">
       <div class="logo">
@@ -363,118 +306,512 @@
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#equipo">Equipo</a></li>
-        <li><a href="#evidencias">Evidencias</a></li>
-        <li><a href="#texto-argumentativo">Texto Argumentativo</a></li>
+        <li><a href="#actividad1">Literacidad Crítica</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+        <li><a href="#poster">Póster Académico</a></li>
+        <li><a href="#argumentativo">Texto Argumentativo</a></li>
+        <li><a href="#evaluacion">Evaluación</a></li>
       </ul>
-      <button class="admin-btn-trigger" onclick="toggleAdminModal()">
-        <i class="fa-solid fa-gear"></i> Modificar Blog
+      <button class="admin-trigger" onclick="toggleAdminModal()">
+        <i class="fa-solid fa-sliders"></i> Admin Blog
       </button>
     </div>
   </header>
 
+  <!-- Banner Hero -->
   <section id="inicio" class="hero">
     <div class="hero-content">
-      <span class="institution-tag">Católica del Norte - Fundación Universitaria</span>
-      <h1>Blog Integrado de Evidencias de Aprendizaje</h1>
-      <p>Espacio digital interactivo para la consolidación de procesos de literacidad crítica, producción académica oral y escrita en el contexto universitario.</p>
+      <span class="hero-tag">Católica del Norte - Fundación Universitaria</span>
+      <h1>Habilidades Comunicativas: Aprendemos, Comunicamos y Transformamos</h1>
+      <p>Bienvenidos a nuestro espacio académico digital. Aquí presentamos una recopilación estructurada de nuestras evidencias de aprendizaje y producciones académicas del curso.</p>
     </div>
   </section>
 
   <div class="container">
 
+    <!-- Sección Equipo -->
     <section id="equipo">
-      <h2 class="section-title"><i class="fa-solid fa-users"></i> Equipo de Trabajo</h2>
+      <div class="section-header">
+        <i class="fa-solid fa-users"></i>
+        <h2>Presentación del Equipo</h2>
+      </div>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
-          <h3 id="member1-name">Sara Isaber Osorio Ospina</h3>
-          <div class="role">Líder de Contenido</div>
-          <p class="quote">"La comunicación asertiva transforma el conocimiento en impacto real."</p>
+          <img src="ANDERSON RESTREPO.jpg" alt="Anderson Restrepo Jaramillo" class="team-avatar-img">
+          <h3>Anderson Restrepo Jaramillo</h3>
+          <div class="team-role">Investigación y Locución</div>
+          <p class="team-desc">Participó en la búsqueda, análisis de información, elaboración del guion técnico y locución del podcast educativo.</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-user-ninja"></i></div>
-          <h3 id="member2-name">Geny Rocio Galvis Capacho</h3>
-          <div class="role">Diseño y Edición Multimedia</div>
-          <p class="quote">"Cada discurso estructurado refleja el rigor del pensamiento académico."</p>
+          <img src="SARA OSORIO.jpg" alt="Sara Isabel Osorio Ospina" class="team-avatar-img">
+          <h3>Sara Isabel Osorio Ospina</h3>
+          <div class="team-role">Coordinación y Edición</div>
+          <p class="team-desc">Participó en la organización de las actividades, revisión de contenidos y desarrollo conceptual del proyecto.</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
-          <h3 id="member3-name">Anderson Restrepo Jaramillo</h3>
-          <div class="role">Redacción y Revisión APA</div>
-          <p class="quote">"Investigar y comunicar con claridad es el pilar de nuestra formación."</p>
+          <img src="GENY GALVIS.jpg" alt="Geny Rocío Galvis Capacho" class="team-avatar-img">
+          <h3>Geny Rocío Galvis Capacho</h3>
+          <div class="team-role">Redacción y Documentación</div>
+          <p class="team-desc">Participó en la elaboración del guion técnico-literario, estructuración de las evidencias e investigación temática.</p>
         </div>
       </div>
     </section>
 
-    <section id="evidencias">
-      <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Evidencias del Curso</h2>
-      <div class="evidence-grid">
+    <!-- Sección Actividad 1 -->
+    <section id="actividad1">
+      <div class="section-header">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <h2>Actividad 1: Literacidad Crítica (Informe y Análisis Literario)</h2>
+      </div>
 
-        <div class="evidence-card">
-          <div class="evidence-header"><i class="fa-solid fa-file-lines"></i> A. Actividad 1: Literacidad Crítica</div>
-          <div class="evidence-body">
-            <p>Análisis crítico y reflexivo de textos argumentativos, evaluando intenciones comunicativas, posturas implícitas y contextualización de discursos.</p>
-            <br>
-            <a href="#" style="color: var(--primary-accent); font-weight: 600; text-decoration: none;"><i class="fa-solid fa-download"></i> Descargar Informe Completo (PDF)</a>
-          </div>
+      <!-- Reseña de Autores -->
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>1. Reseña de Autores y Contexto de las Obras</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
         </div>
-
-        <div class="evidence-card">
-          <div class="evidence-header"><i class="fa-solid fa-scroll"></i> B. Guion del Podcast</div>
-          <div class="evidence-body">
-            <p>Estructura narrativa del pódcast, con delimitación de tiempos, intervenciones, efectos sonoros y articulación del discurso oral.</p>
-            <br>
-            <a href="#" style="color: var(--primary-accent); font-weight: 600; text-decoration: none;"><i class="fa-solid fa-eye"></i> Leer Guion Transcripto</a>
-          </div>
+        <div class="accordion-content">
+          <h4>Rosario Castellanos (1925-1974)</h4>
+          <p>Diplomática, poetisa y ensayista mexicana, figura literaria del siglo XX en América Latina. Centró su atención en el análisis crítico de la condición femenina y las asimetrías sociales e indigenistas en Chiapas. En <em>Modesta Gómez</em> (1960), desentraña la opresión estructural que experimentan las mujeres subalternas.</p>
+          <br>
+          <h4>Gabriel García Márquez (1927-2014)</h4>
+          <p>Nacido en Aracataca, Colombia. Premio Nobel de Literatura 1982 y máximo exponente del realismo mágico. En cuentos como <em>Un día de estos</em> (1962), refleja el ambiente violento e institucionalmente fracturado de "La Violencia" en Colombia mediante una prosa sobria y tensionada.</p>
+          <br>
+          <h4>Mario Benedetti (1920-2009)</h4>
+          <p>Prolífico escritor uruguayo perteneciente a la Generación del 45. En <em>Los pocillos</em> (1959), construye un drama introspectivo donde los objetos domésticos y silencios actúan como vehículos de revelación e hipocresía social.</p>
         </div>
+      </div>
 
-        <div class="evidence-card">
-          <div class="evidence-header"><i class="fa-solid fa-podcast"></i> C. Podcast Producido</div>
-          <div class="evidence-body">
-            <p>Episodio de audio grabado y producido en equipo sobre los retos de la comunicación académica.</p>
-            <div class="media-container" style="padding: 10px; background: #f1f5f9;">
-              <audio controls style="width: 100%;">
-                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-                Tu navegador no soporta el reproductor de audio.
-              </audio>
-            </div>
-          </div>
+      <!-- Análisis Cuento 1 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>2. Análisis del Cuento "Modesta Gómez" (Rosario Castellanos)</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
         </div>
-
-        <div class="evidence-card">
-          <div class="evidence-header"><i class="fa-solid fa-chart-pie"></i> D. Póster Científico</div>
-          <div class="evidence-body">
-            <p>Síntesis visual de la investigación con elementos clave de diagramación y soporte académico.</p>
-            <div class="media-container" style="margin-top:10px;">
-              <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Haz+Clic+Para+Ampliar+Poster" alt="Póster Científico" class="poster-img" onclick="openLightbox(this.src)">
-            </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">* Haz clic en la imagen para verla en alta resolución.</p>
-          </div>
+        <div class="accordion-content">
+          <p><strong>Transformación de las aspiraciones:</strong> Sus sueños juveniles de ser «esposa legítima» o tener independencia económica colapsan por abusos sistemáticos: alienación desde la infancia, violación por Jorgito, expulsión por embarazo y muerte del esposo por alcoholismo.</p>
+          <br>
+          <p><strong>La satisfacción al final:</strong> Siente satisfacción al agredir a una india más desprotegida para canalizar su frustración. Asume por primera vez el rol de agresora y no de dominada, gritando: «¡India desgraciada, me lo tenés que pagar todo junto!».</p>
+          <br>
+          <p><strong>Interseccionalidad:</strong> Se cruzan el género (abuso sexual y culpabilización), clase social (ajenada desde niña) y origen étnico (perpetúa la cadena racista agrediendo al indigenado autóctono).</p>
         </div>
+      </div>
 
-        <div class="evidence-card" style="grid-column: 1 / -1;">
-          <div class="evidence-header"><i class="fa-solid fa-video"></i> E. Sustentación - Video Tutorial de Navegación</div>
-          <div class="evidence-body">
-            <p>Explicación guiada (duración máxima 5 minutos) de la estructura del blog, recorrido por las evidencias y la experiencia de aprendizaje del equipo.</p>
-            <div class="media-container" style="height: 350px; margin-top: 15px;">
-              <iframe height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de Sustentación" allowfullscreen></iframe>
-            </div>
-          </div>
+      <!-- Análisis Cuento 2 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>3. Análisis del Cuento "Un día de estos" (Gabriel García Márquez)</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
         </div>
+        <div class="accordion-content">
+          <p><strong>Tipo de lenguaje:</strong> Lenguaje denotativo, austero, directo y despojado de adornos retóricos. Realismo llano con diálogos cortantes y descripciones clínicas.</p>
+          <br>
+          <p><strong>"Es la misma vaina":</strong> Sintetiza la corrupción estructural y el patrimonio personalista del poder público. El alcalde no distingue entre el erario público y sus finanzas particulares.</p>
+          <br>
+          <p><strong>Tipo de alcalde:</strong> Encarna al caudillo autoritario, militarizado y corrupto que ejerce el poder mediante coacción armada («Dice que si no le sacas la muela te pega un tiro»).</p>
+        </div>
+      </div>
 
+      <!-- Análisis Cuento 3 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>4. Análisis del Cuento "Los pocillos" (Mario Benedetti)</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>Caricias de Alberto:</strong> Representan una alianza afectiva furtiva y una rebelión silenciosa frente a la crueldad de José Claudio, sirviendo como refugio ante la soledad.</p>
+          <br>
+          <p><strong>Ceguera como "protección divina":</strong> Crea un muro de impunidad visual que permite a los amantes consumar su infidelidad en presencia del esposo sin riesgo inmediato.</p>
+          <br>
+          <p><strong>Perspectiva desde José Claudio:</strong> Al pedir el pocillo rojo («No, querida. Hoy quiero tomar en el pocillo rojo»), demuestra que siempre supo del engaño. Cambia el relato a una venganza psicológica calculada.</p>
+        </div>
+      </div>
+
+      <!-- Recursos Multimedia Actividad 1 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>5. Infografía Interactiva y Video de Sustentación</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Explora la infografía interactiva de las relaciones de poder en los tres cuentos y el video explicativo elaborado por el equipo:</p>
+          <a href="https://www.youtube.com/watch?v=oP3BGqceCA0" target="_blank" class="btn-link"><i class="fa-brands fa-youtube"></i> Ver Infografía Interactiva</a>
+          <a href="https://www.youtube.com/watch?v=nUNXg8R9GSk" target="_blank" class="btn-link" style="background:#059669;"><i class="fa-brands fa-youtube"></i> Ver Video de Sustentación Actividad 1</a>
+        </div>
       </div>
     </section>
 
-    <section id="texto-argumentativo">
-      <h2 class="section-title"><i class="fa-solid fa-pen-nib"></i> Texto Argumentativo</h2>
-      <div class="essay-container">
-        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">La Trascendencia de las Habilidades Comunicativas en los Entornos Académico y Laboral</h3>
-        
-        <div class="essay-content" id="essay-text">
-          <p>En la sociedad contemporánea de la información y el conocimiento, la capacidad de transmitir ideas con precisión, sustento y adaptabilidad se ha consolidado como un eje vertebrador del desarrollo personal y profesional. En el ámbito académico, el dominio de las competencias comunicativas escritas y orales trasciende la mera entrega de tareas escolares; constituye el vehículo primario a través del cual los estudiantes analizan, deconstruyen y aportan nuevos saberes. La articulación estructurada de conceptos exige una comprensión profunda del contexto discursivo, lo que fortalece directamente el pensamiento crítico y la capacidad de cuestionar realidades complejas.</p>
+    <!-- Sección Actividad 3: Podcast Educativo -->
+    <section id="podcast">
+      <div class="section-header">
+        <i class="fa-solid fa-podcast"></i>
+        <h2>Actividad 3: Guion y Grabación de Podcast Educativo</h2>
+      </div>
+
+      <!-- Información General de la Actividad 3 -->
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>1. Información General del Podcast</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>Título del Podcast:</strong> Eco Ético: La Sombra del Plagio en América Latina</p>
+          <p><strong>Participantes:</strong> Anderson Restrepo Jaramillo, Sara Isabel Osorio Ospina y Geny Rocío Galvis Capacho.</p>
+          <p><strong>Duración estimada:</strong> 9 minutos (Rango permitido: 8 a 10 minutos máx.).</p>
+          <p><strong>Programa académico:</strong> Licenciatura / Pregrado en Educación y Ciencias Sociales — Fundación Universitaria Católica del Norte.</p>
+          <p><strong>Fecha de entrega:</strong> 18 de agosto de 2026.</p>
+        </div>
+      </div>
+
+      <!-- Reproductor Embebido de Spotify -->
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>2. Reproducción del Podcast en Spotify</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p>Escucha la grabación completa de nuestro episodio directo desde Spotify:</p>
+          <br>
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3DHD28ZUzSR25svbiOuVeb?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <br><br>
+          <a href="https://open.spotify.com/episode/3DHD28ZUzSR25svbiOuVeb?si=fxGCxiG-TE2kjw3pkPgxZg" target="_blank" class="btn-link" style="background:#1DB954; color:black;">
+            <i class="fa-brands fa-spotify"></i> Abrir en Spotify Web / App
+          </a>
+        </div>
+      </div>
+
+      <!-- Guion Técnico y Literario Completo -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>3. Guion Técnico y Literario Completo</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
           
-          <div class="apa-citation">
-            "Las habilidades comunicativas no son solo herramientas de transmisión de datos, sino procesos sociocognitivos fundamentales para la construcción colaborativa del conocimiento y la inserción laboral efectiva" (Cassany, 2019, p. 45).
+          <h4>3.1 Introducción (Duración: 30 segundos)</h4>
+          <p><em>[Efecto sonoro: Cortinilla musical de entrada en fade-in, pasa a música instrumental suave libre de derechos como fondo]</em></p>
+          <p><strong>Anderson Restrepo:</strong> ¡Hola a todos! Bienvenidos a <em>Eco Ético</em>, el espacio donde analizamos la integridad, la responsabilidad social y los retos de la comunicación académica e intelectual. Los saludan Anderson Restrepo...</p>
+          <p><strong>Sara Osorio:</strong> ...Sara Osorio...</p>
+          <p><strong>Geny Galvis:</strong> ...y Geny Galvis. Somos estudiantes de la Facultad de Educación y Ciencias Sociales de la Fundación Universitaria Católica del Norte.</p>
+          <p><strong>Anderson Restrepo:</strong> En este episodio exploraremos las implicaciones del plagio en la producción de conocimiento a través de un caso emblemático en América Latina: el escándalo periodístico y literario del escritor peruano Alfredo Bryce Echenique.</p>
+          
+          <hr style="margin:1.5rem 0; border:0; border-top:1px solid #e2e8f0;">
+
+          <h4>3.2 Presentación del Tema y Contexto (Duración: 3 minutos)</h4>
+          <p><em>[Efecto sonoro: Golpe de efecto / Ráfaga musical de transición]</em></p>
+          <p><strong>Sara Osorio:</strong> Para entrar en contexto, el plagio no es simplemente "copiar y pegar"; es la apropiación indebida de ideas, textos o descubrimientos pertenecientes a otros autores, presentándolos como propios sin el debido reconocimiento o citación. En el ámbito académico y profesional, vulnera la confianza pública y frena el desarrollo original del pensamiento.</p>
+          <p><strong>Geny Galvis:</strong> Un caso que sacudió a América Latina y al mundo hispanohablante ocurrió entre 2006 y 2009. Alfredo Bryce Echenique, uno de los novelistas más reconocidos de la literatura peruana y autor de obras célebres como <em>Un mundo para Julius</em>, fue acusado y sancionado por apropiarse de decenas de artículos periodísticos.</p>
+          <p><strong>Anderson Restrepo:</strong> <em>[Fragmento/Noticia citada]:</em> Según documentaron medios como la BBC y el diario El País de España, el Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual de Perú (INDECOPI) confirmó en 2009 que Bryce Echenique plagió textualmente al menos 16 artículos (y denuncias posteriores elevaron la cifra a más de 30) publicados originalmente por periodistas, académicos y escritores en diarios como <em>La Vanguardia</em>, <em>El Periódico de Catalunya</em> y <em>El País</em>.</p>
+          <p><strong>Sara Osorio:</strong> Lo impactante de este caso fue que un autor con una trayectoria consolidada incurriera de forma sistemática en la reproducción literal de columnas de opinión publicadas por autores europeos y latinoamericanos en medios de Perú, España y México.</p>
+
+          <hr style="margin:1.5rem 0; border:0; border-top:1px solid #e2e8f0;">
+
+          <h4>3.3 Análisis Desglosado del Caso (Duración: 3 minutos)</h4>
+          <p><em>[Efecto sonoro: Transición musical con tono reflexivo]</em></p>
+          <p><strong>Geny Galvis:</strong> Desglosemos las preguntas clave de este caso para comprender sus implicaciones:</p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li><strong>¿Quién estuvo involucrado?</strong> El escritor Alfredo Bryce Echenique como autor intelectual del plagio, y múltiples agraviados, entre ellos el periodista español Sergi Pàmies, la escritora Eulalia Iglesias y el diplomático Oswaldo de Rivero.</li>
+            <li><strong>¿Qué ocurrió?</strong> Se publicaron artículos firmados por Bryce Echenique en diversos medios latinoamericanos (como el diario <em>El Comercio</em> de Lima) cuyos párrafos y estructuras eran copias exactas de textos previamente publicados por otros autores.</li>
+            <li><strong>¿Por qué fue considerado plagio?</strong> Porque existió una coincidencia textual y conceptual deliberada de más del 80% en los escritos, omitiendo los créditos originales y violando la Ley de Derecho de Autor.</li>
+          </ul>
+          <p><strong>Anderson Restrepo:</strong></p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+            <li><strong>¿Cuáles fueron las consecuencias?</strong><br>
+              * <em>Jurídicas y económicas:</em> INDECOPI le impuso en 2009 una multa de 177.500 soles peruanos (aproximadamente 53.000 dólares).<br>
+              * <em>Sociales y profesionales:</em> Sufrió un severo descrédito público. Cuando le otorgaron el Premio FIL de Literatura en Lenguas Romances en Guadalajara (México) en 2012, decenas de intelectuales firmaron cartas de protesta, debilitando el prestigio del galardón.
+            </li>
+            <li><strong>¿Qué principios éticos se vulneraron?</strong> La honestidad intelectual, la verdad, el respeto por el trabajo ajeno, el mérito académico y la responsabilidad del profesional de las letras ante su audiencia.</li>
+            <li><strong>¿Cómo pudo evitarse?</strong> Con rigor deontológico, aplicando normas estandarizadas de citación (como APA o Chicago), y comprendiendo que la presión editorial o la prisa no justifican apoderarse de la labor ajena.</li>
+          </ul>
+
+          <hr style="margin:1.5rem 0; border:0; border-top:1px solid #e2e8f0;">
+
+          <h4>3.4 Discusión Ética y Recomendaciones (Duración: 2 minutos)</h4>
+          <p><em>[Efecto sonoro: Ráfaga de transición corta]</em></p>
+          <p><strong>Sara Osorio:</strong> Este caso nos demuestra que el plagio no solo ocurre en aulas universitarias, sino también en las altas esferas de la cultura y los medios. ¿Cómo podemos prevenir estas prácticas en la escritura académica y profesional?</p>
+          <p><strong>Geny Galvis:</strong> Primero, es fundamental apropiarse de las normas de citación (como las Normas APA). Citar a un autor no le resta originalidad a nuestro trabajo; al contrario, le otorga rigor conceptual y sustento analítico.</p>
+          <p><strong>Anderson Restrepo:</strong> Segundo, debemos fomentar una cultura de intertextualidad ética: aprender a parafrasear correctamente, a sintetizar y a dialogar críticamente con las ideas de otros en lugar de solo reproducirlas.</p>
+          <p><strong>Sara Osorio:</strong> Tercero, las instituciones deben promover la formación en integridad académica antes que el simple castigo, empleando herramientas tecnológicas de detección de coincidencias (como Turnitin) como apoyo pedagógico y no represivo.</p>
+
+          <hr style="margin:1.5rem 0; border:0; border-top:1px solid #e2e8f0;">
+
+          <h4>3.5 Sustentación Individual y Conclusión (Duración: 1 minuto)</h4>
+          <p><em>[Efecto sonoro: Fondo musical en tono de cierre y aprendizaje]</em></p>
+          <p><strong>Anderson Restrepo (Sustentación Individual):</strong> Mi principal aprendizaje en esta actividad fue comprender que el derecho de autor protege el esfuerzo reflexivo de las personas. Como profesional en formación, integrar las normas de escritura académica en mi discurso oral y escrito me da la solvencia ética para argumentar con autoridad.</p>
+          <p><strong>Sara Osorio (Sustentación Individual):</strong> Por mi parte, aprendí que el plagio daña profundamente el tejido social y la credibilidad institucional. La honestidad académica es la base sobre la cual se construye el conocimiento legítimo y útil para la sociedad.</p>
+          <p><strong>Geny Galvis (Sustentación Individual):</strong> Mi aprendizaje se centra en la importancia del guion y la comunicación rigurosa. Expresar ideas argumentadas, sustentadas en fuentes confiables y citadas correctamente, es un deber ético inaplazable en la era de la sobreinformación.</p>
+          <p><strong>Anderson Restrepo:</strong> Muchas gracias por acompañarnos en este episodio de <em>Eco Ético</em>. Recuerden que el conocimiento crece cuando reconocemos la voz de los demás. ¡Hasta la próxima!</p>
+
+          <hr style="margin:1.5rem 0; border:0; border-top:1px solid #e2e8f0;">
+
+          <h4>3.6 Bibliografía Consultada del Podcast (Duración: 30 segundos)</h4>
+          <p><strong>Geny Galvis (Voz en off/Locución rápida):</strong> Las fuentes consultadas para esta investigación incluyen el expediente del Instituto Nacional de Defensa de la Competencia y de la Protección de la Propiedad Intelectual (INDECOPI, Perú, 2009); reportajes de la BBC Mundo y del diario El País sobre el caso Bryce Echenique; y los lineamientos sobre honestidad académica del Manual de Publicaciones APA.</p>
+          <p><em>[Efecto sonoro: Cortinilla musical de salida en fade-out hasta silencio]</em></p>
+
+        </div>
+      </div>
+
+      <!-- Referencias Bibliográficas Actividad 3 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>4. Referencias Bibliográficas del Podcast (APA 7.ª ed.)</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem;">BBC Mundo. (2009, 9 de enero). <em>Sancionan a Bryce Echenique por plagio</em>. BBC News Mundo. https://www.bbc.com/mundo/valija_de_noticias/2009/01/090109_1835_bryce_plagio_rg</p>
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem; margin-top:0.5rem;">El País. (2009, 10 de enero). <em>Bryce Echenique, multado con 42.000 euros por plagiar 16 artículos</em>. Diario El País. https://elpais.com/cultura/2009/01/10/actualidad/1231542001_850215.html</p>
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem; margin-top:0.5rem;">INDECOPI. (2009). <em>Resolución N.° 0015-2009/TPI-INDECOPI: Procedimiento sancionador por Infracción a los Derechos Morales de Paternidad e Integridad</em>. Tribunal de Defensa de la Competencia y de la Propiedad Intelectual, Lima, Perú.</p>
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem; margin-top:0.5rem;">Park, C. (2003). In Other (People's) Words: Plagiarism by university students—literature and lessons. <em>Assessment & Evaluation in Higher Education</em>, 28(5), 471–488. https://doi.org/10.1080/02602930301677</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Sección Actividad 2: Póster Académico -->
+    <section id="poster">
+      <div class="section-header">
+        <i class="fa-solid fa-file-powerpoint"></i>
+        <h2>Actividad 2: Póster Académico</h2>
+      </div>
+
+      <!-- Introducción y Justificación de la Actividad 2 -->
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>1. Selección del Tema y Búsqueda Avanzada en Dialnet</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p><strong>Tema escogido:</strong> Relaciones de poder y dominación.</p>
+          <p><strong>Lectura literaria seleccionada:</strong> <em>Un día de estos</em>, de Gabriel García Márquez.</p>
+          <br>
+          <p><strong>Justificación:</strong> A lo largo de la historia se observa un enfrentamiento entre un dentista y un alcalde, quienes representan diferentes formas de poder. Aunque el alcalde posee autoridad institucional, durante la consulta odontológica el dentista controla la situación, demostrando que las relaciones de poder cambian según las circunstancias.</p>
+          <br>
+          <p><strong>Parámetros de la Búsqueda Avanzada (Dialnet):</strong></p>
+          <ul>
+            <li><strong>Base de datos:</strong> Dialnet (Biblioteca Virtual UCN)</li>
+            <li><strong>Palabras clave:</strong> Relaciones de poder, Poder, Dominación, Literatura, Análisis literario.</li>
+            <li><strong>Filtros aplicados:</strong> Tipo de documento (Artículo de revista), Idioma (Español), Área temática (Literatura).</li>
+            <li><strong>Artículo seleccionado:</strong> Torres Torres, J. M. (2009). <em>Las articulaciones del poder en la literatura mexicana del narcotráfico</em>. Ogigia. Revista electrónica de estudios hispánicos, (6), 15-26.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contenido del Póster Científico -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>2. Síntesis y Estructura del Póster Científico</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p style="font-weight:600; color:var(--primary); margin-bottom:1rem;">
+            Título del Póster: Relaciones de poder y dominación en el cuento "Un día de estos" de Gabriel García Márquez: un análisis a partir del artículo "Las articulaciones del poder en la literatura mexicana del narcotráfico".
+          </p>
+          
+          <div class="poster-grid">
+            <div class="poster-box">
+              <h4>1. Introducción</h4>
+              <p>Las relaciones de poder están presentes en distintos ámbitos sociales y en la literatura. Se analizó el cuento <em>Un día de estos</em> relacionándolo con los aportes teóricos de Michel Foucault explicados por Torres Torres (2009).</p>
+            </div>
+            <div class="poster-box">
+              <h4>2. Objetivos</h4>
+              <p><strong>Artículo:</strong> Analizar la articulación del poder en las novelas <em>Tiempo de alacranes</em> y <em>Puesta en escena</em> (Foucault).</p>
+              <p><strong>Trabajo:</strong> Analizar el poder y la dominación en <em>Un día de estos</em> desde la perspectiva del artículo.</p>
+            </div>
+            <div class="poster-box">
+              <h4>3. Metodología</h4>
+              <p>Investigación con enfoque cualitativo basada en análisis literario de textos narrativos e interpretación conceptual de las redes de poder, dominación y movilidad foucaultiana.</p>
+            </div>
+            <div class="poster-box">
+              <h4>4. Resultados</h4>
+              <p>El poder no depende solo del cargo político, sino del contexto. El dolor de muela coloca al alcalde en dependencia del dentista, quien ejerce control técnico sin anestesia.</p>
+            </div>
+            <div class="poster-box">
+              <h4>5. Discusión</h4>
+              <p>El enfrentamiento dentista-alcalde refleja una lucha donde el control no es permanente. El dolor reconfigura la jerarquía permitiendo la resistencia frente al autoritarismo.</p>
+            </div>
+            <div class="poster-box">
+              <h4>6. Conclusiones</h4>
+              <p>El poder es dinámico y relacional. La literatura permite comprender tensiones sociales complejas y fortalece el análisis crítico interdisciplinar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+	  
+	  <!-- Slide Imagen del Póster Académico -->
+		<div class="accordion">
+		  <div class="accordion-header" onclick="toggleAccordion(this)">
+			<span>3. Póster Académico (Visualización Completa)</span>
+			<i class="fa-solid fa-chevron-down chevron"></i>
+		  </div>
+		  <div class="accordion-content">
+			<div class="poster-img-container">
+			  <div class="poster-img-wrapper">
+				<a href="POSTER.png" target="_blank" title="Haz clic para ver en tamaño completo">
+				  <img src="POSTER.png" alt="Póster Académico - Las Articulaciones del Poder en la Literatura Mexicana del Narcotráfico">
+				</a>
+			  </div>
+			  <a href="POSTER.png" target="_blank" class="btn-link">
+				<i class="fa-solid fa-expand"></i> Abrir Imagen en Tamaño Completo
+			  </a>
+			</div>
+		  </div>
+		</div>
+
+      <!-- Sustentación en Video (YouTube Embebido) -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>4. Video de Sustentación del Póster Académico</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p>A continuación se presenta la sustentación en video elaborada por el equipo de trabajo:</p>
+          <a href="https://youtu.be/aCOML7BDdxY" target="_blank" class="btn-link" style="background:#dc2626;"><i class="fa-brands fa-youtube"></i> Ver directo en YouTube</a>
+        </div>
+      </div>
+
+      <!-- Referencias Bibliográficas Actividad 2 -->
+      <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>5. Referencias Bibliográficas (APA 7.ª ed.)</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem;">García Márquez, G. (s. f.). <em>Un día de estos</em>. Ciudad Seva.</p>
+          <p style="margin-left: 1.5rem; text-indent: -1.5rem; margin-top:0.5rem;">Torres Torres, J. M. (2009). Las articulaciones del poder en la literatura mexicana del narcotráfico. <em>Ogigia. Revista electrónica de estudios hispánicos</em>, (6), 15-26.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Texto Argumentativo -->
+    <section id="argumentativo">
+      <div class="section-header">
+        <i class="fa-solid fa-pen-nib"></i>
+        <h2>Texto Argumentativo (Normas APA 7.ª ed.)</h2>
+      </div>
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>La importancia de las habilidades comunicativas en los ámbitos académico y laboral</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content" style="text-align: justify;">
+          <p>Las habilidades comunicativas son fundamentales para desenvolvernos adecuadamente en los diferentes espacios de nuestra vida, especialmente en los ámbitos académico y laboral. Saber expresar ideas de manera clara, escuchar a los demás, comprender diferentes puntos de vista y utilizar correctamente el lenguaje permite establecer relaciones más efectivas y participar de manera responsable en distintos contextos.</p>
+          
+          <p style="margin-top:1rem;">En el ámbito académico, permiten comprender textos, argumentar ideas y colaborar. Además, la lectura crítica y la capacidad de argumentar permiten analizar la información de manera reflexiva.</p>
+
+          <div class="quote-box">
+            "Las habilidades comunicativas favorecen la interacción y permiten responder de manera adecuada a las necesidades de diferentes contextos" (Ardila Higuera et al., 2023, p. 5).
           </div>
 
-          <p>Bajo la premisa del autor citado, se evidencia que la competencia comunicativa no opera de forma aislada, sino en estrecha consonancia con las exigencias del entorno laboral actual. En las organizaciones modernas, caracterizadas por equipos multidisciplinarios e interconectados, la efectividad de un profesional no se mide únicamente por sus competencias técnicas, sino por su solidez para negociar, argumentar posturas, redactar informes ejecutivos claros y exponer proyectos de forma convin
+          <p>Por lo anterior, fortalecer las habilidades comunicativas es una necesidad. Una persona que sabe leer, escribir, escuchar y expresarse tiene mayores herramientas para participar activamente y enfrentar situaciones que requieren diálogo y trabajo en equipo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Evaluación -->
+    <section id="evaluacion">
+      <div class="section-header">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <h2>Evaluación de la Experiencia</h2>
+      </div>
+      <div class="accordion active">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Reflexión Final del Equipo</span>
+          <i class="fa-solid fa-chevron-down chevron"></i>
+        </div>
+        <div class="accordion-content">
+          <p>La elaboración de este blog fue una experiencia significativa porque nos permitió integrar los diferentes aprendizajes desarrollados durante el curso de Habilidades Comunicativas. Como equipo, aprendimos a organizar información y presentar nuestras ideas de manera clara mediante recursos digitales.</p>
+          <br>
+          <p>Para futuras experiencias, sugerimos planificar la distribución de tareas con anticipación y realizar pruebas previas a todos los enlaces y medios embebidos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Dinámica para Entradas Nuevas del Admin -->
+    <section id="dynamic-section" style="display:none;">
+      <div class="section-header">
+        <i class="fa-solid fa-blog"></i>
+        <h2>Nuevas Entradas Publicadas</h2>
+      </div>
+      <div id="dynamic-container"></div>
+    </section>
+
+  </div>
+
+  <!-- Modal Admin -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <h3 style="margin-bottom:0.5rem; color:var(--primary);"><i class="fa-solid fa-gear"></i> Administrador del Blog</h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.2rem;">Publica un nuevo artículo o actualización al instante.</p>
+      
+      <form id="blogForm">
+        <div class="form-group">
+          <label>Título de la Entrada</label>
+          <input type="text" id="inputTitle" placeholder="Ej: Nueva reflexión del equipo" required>
+        </div>
+        <div class="form-group">
+          <label>Contenido</label>
+          <textarea id="inputContent" rows="4" placeholder="Escribe el texto aquí..." required></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" onclick="toggleAdminModal()" style="padding:0.5rem 1rem; border:none; background:#cbd5e1; border-radius:6px; cursor:pointer;">Cancelar</button>
+          <button type="submit" class="admin-trigger">Guardar y Publicar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Fundación Universitaria Católica del Norte &copy; 2026 | Curso de Habilidades Comunicativas</p>
+    <p style="font-size:0.8rem; margin-top:5px; color:#64748b;">Anderson Restrepo Jaramillo | Sara Isabel Osorio Ospina | Geny Rocío Galvis Capacho</p>
+  </footer>
+
+  <script>
+    function toggleAccordion(header) {
+      const accordion = header.parentElement;
+      accordion.classList.toggle('active');
+    }
+
+    function toggleAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    document.getElementById('blogForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('inputTitle').value;
+      const content = document.getElementById('inputContent').value;
+      
+      const posts = JSON.parse(localStorage.getItem('blog_custom_posts') || '[]');
+      posts.push({ title, content, date: new Date().toLocaleDateString() });
+      localStorage.setItem('blog_custom_posts', JSON.stringify(posts));
+
+      renderCustomPosts();
+      toggleAdminModal();
+      this.reset();
+    });
+
+    function renderCustomPosts() {
+      const posts = JSON.parse(localStorage.getItem('blog_custom_posts') || '[]');
+      const container = document.getElementById('dynamic-container');
+      const section = document.getElementById('dynamic-section');
+
+      if (posts.length > 0) {
+        section.style.display = 'block';
+        container.innerHTML = posts.map(p => `
+          <div class="accordion active" style="margin-bottom:1rem;">
+            <div class="accordion-header">
+              <span>${p.title} <small style="font-weight:normal; color:#64748b;">(${p.date})</small></span>
+            </div>
+            <div class="accordion-content">
+              <p>${p.content}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    window.onload = renderCustomPosts;
+  </script>
+</body>
+</html>
